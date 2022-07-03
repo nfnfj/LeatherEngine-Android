@@ -411,7 +411,7 @@ class FreeplayState extends MusicBeatState
 				vocals.volume = 0.7;
 			}
 
-			if(vocals != null && FlxG.sound.music != null && !FlxG.keys.justPressed.ENTER)
+			if(vocals != null && FlxG.sound.music != null && !controls.ACCEPT)
 			{
 				if(vocals.active && FlxG.sound.music.active)
 				{
@@ -433,10 +433,10 @@ class FreeplayState extends MusicBeatState
 			#if cpp
 			@:privateAccess
 			{
-				if(FlxG.sound.music.active && FlxG.sound.music.playing && !FlxG.keys.justPressed.ENTER)
+				if(FlxG.sound.music.active && FlxG.sound.music.playing && !controls.ACCEPT)
 					lime.media.openal.AL.sourcef(FlxG.sound.music._channel.__source.__backend.handle, lime.media.openal.AL.PITCH, curSpeed);
 	
-				if(vocals.active && vocals.playing && !FlxG.keys.justPressed.ENTER)
+				if(vocals.active && vocals.playing && !controls.ACCEPT)
 					lime.media.openal.AL.sourcef(vocals._channel.__source.__backend.handle, lime.media.openal.AL.PITCH, curSpeed);
 			}
 			#end
@@ -448,7 +448,7 @@ class FreeplayState extends MusicBeatState
 				changeSelection();
 			}
 
-			if(FlxG.keys.justPressed.ENTER && canEnterSong)
+			if(controls.ACCEPT && canEnterSong)
 			{
 				var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDiffString);
 	
