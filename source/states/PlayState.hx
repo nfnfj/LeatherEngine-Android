@@ -2592,7 +2592,7 @@ class PlayState extends MusicBeatState
 		if (!inCutscene && !switchedStates)
 			keyShit();
 
-		if(FlxG.keys.checkStatus(FlxKey.fromString(utilities.Options.getData("pauseBind", "binds")), FlxInputState.JUST_PRESSED) && startedCountdown && canPause && !switchedStates)
+		if((FlxG.android.justReleased.BACK) && startedCountdown && canPause && !switchedStates)
 		{
 			persistentUpdate = false;
 			persistentDraw = true;
@@ -3165,6 +3165,30 @@ class PlayState extends MusicBeatState
 	var heldArray:Array<Bool> = [];
 	var previousReleased:Array<Bool> = [];
 
+        #if android
+	private function hitboxKeysArePressed():Bool
+	{
+	        if (_hitbox.array[ogPlayerKeyCount].pressed) 
+                {
+			return true;
+		}
+		else if (_hitbox.array[ogKeyCount].pressed) 
+                {
+			return true;
+		}
+		return false;
+	}
+
+	private function hitboxDataKeyIsPressed(data:Int):Bool
+	{
+		if (_hitbox.array[data].pressed) 
+                {
+                        return true;
+                }
+		return false;
+	}
+        #end
+
 	public function keyShit()
 	{
 		if(generatedMusic && startedCountdown)
@@ -3198,7 +3222,21 @@ class PlayState extends MusicBeatState
 							heldArray[i] = FlxG.keys.checkStatus(FlxKey.fromString(bruhBinds[i]), FlxInputState.PRESSED);
 						}
 					}
-
+                                        for(i in 0..._hitbox.array.length)
+					{
+						justPressedArray[i] = _hitbox.array[i].justPressed;
+						releasedArray[i] = _hitbox.array[i].released;
+						justReleasedArray[i] = _hitbox.array[i].justReleased;
+						heldArray[i] = _hitbox.array[i].pressed;
+		
+						if(releasedArray[i] == true && SONG.playerKeyCount == 4)
+						{
+							justPressedArray[i] = _hitbox.array[i].justPressed;
+							releasedArray[i] = _hitbox.array[i].released;
+							justReleasedArray[i] = _hitbox.array[i].justReleased;
+							heldArray[i] = _hitbox.array[i].pressed;
+						}
+					}
 					for (i in 0...justPressedArray.length) {
 						if (justPressedArray[i]) {
 							replay.recordInput(i, "pressed");
