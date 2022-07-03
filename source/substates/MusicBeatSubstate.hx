@@ -12,6 +12,10 @@ import utilities.Controls;
 import game.Conductor.BPMChangeEvent;
 import flixel.FlxG;
 import flixel.FlxSubState;
+#if android
+import flixel.input.actions.FlxActionInput;
+import android.flixel.FlxVirtualPad;
+#end
 
 class MusicBeatSubstate extends FlxSubState
 {
