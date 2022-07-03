@@ -10,7 +10,7 @@ class FlashingLightsMenu extends MusicBeatState
     override public function create()
     {
         #if android
-	    addVirtualPad(NONE, A);
+	    addVirtualPad(NONE, A_B);
         #end
         super.create();
 
@@ -25,12 +25,12 @@ class FlashingLightsMenu extends MusicBeatState
     {
         super.update(elapsed);
 
-        if(FlxG.keys.justPressed.Y)
+        if(controls.ACCEPT)
             Options.setData(true, "flashingLights");
-        else if(!FlxG.keys.justPressed.Y && controls.ACCEPT)
+        else if(!controls.ACCEPT && controls.ACCEPT)
             Options.setData(false, "flashingLights");
 
-        if(controls.ACCEPT)
+        if(controls.BACK)
             FlxG.switchState(new TitleState());
     }
 }
