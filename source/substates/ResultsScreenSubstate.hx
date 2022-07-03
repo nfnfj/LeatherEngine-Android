@@ -58,8 +58,20 @@ class ResultsScreenSubstate extends MusicBeatSubstate
 
     override function update(elapsed:Float) {
         super.update(elapsed);
+	    
+	#if android
+	var justTouched:Bool = false;
 
-        if(FlxG.keys.justPressed.ENTER)
+	for (touch in FlxG.touches.list)
+	{
+		if (touch.justPressed)
+		{
+			justTouched = true;
+		}
+	}
+	#end
+
+        if(FlxG.keys.justPressed.ENTER #if android || justTouched #end)
         {
             PlayState.instance.finishSongStuffs();
             FlxG.state.closeSubState();
