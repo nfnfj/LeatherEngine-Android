@@ -291,7 +291,7 @@ class FreeplayState extends MusicBeatState
 
 		var leftP = controls.LEFT_P;
 		var rightP = controls.RIGHT_P;
-		var shift = FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonC.Pressed #end;
+		var shift = FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonC.pressed #end;
 
 		var upP = controls.UP_P;
 		var downP = controls.DOWN_P;
