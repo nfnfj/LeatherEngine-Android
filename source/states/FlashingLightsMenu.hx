@@ -10,11 +10,11 @@ class FlashingLightsMenu extends MusicBeatState
     override public function create()
     {
         #if android
-	    addVirtualPad(NONE, A_B);
+	addVirtualPad(NONE, A_B);
         #end
         super.create();
 
-        var text = new FlxText(0,0,0,"Hey! Leather Engine has flashing lights\nPress Y to enable them, or anything else to not.\n(Any key closes this menu)", 32);
+        var text = new FlxText(0,0,0,"Hey! Leather Engine has flashing lights\nPress A to enable them, or B to not.\n(Any key closes this menu)", 32);
         text.font = Paths.font("vcr.ttf");
         text.screenCenter();
         text.setBorderStyle(OUTLINE, FlxColor.BLACK, 1.5, 1);
@@ -27,7 +27,7 @@ class FlashingLightsMenu extends MusicBeatState
 
         if(controls.ACCEPT)
             Options.setData(true, "flashingLights");
-        else if(!controls.ACCEPT && controls.ACCEPT)
+        else if(!controls.ACCEPT && controls.BACK)
             Options.setData(false, "flashingLights");
 
         if(controls.BACK)
