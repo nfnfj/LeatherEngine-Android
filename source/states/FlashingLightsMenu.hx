@@ -9,6 +9,9 @@ class FlashingLightsMenu extends MusicBeatState
 {
     override public function create()
     {
+        #if android
+	    addVirtualPad(NONE, A);
+        #end
         super.create();
 
         var text = new FlxText(0,0,0,"Hey! Leather Engine has flashing lights\nPress Y to enable them, or anything else to not.\n(Any key closes this menu)", 32);
@@ -24,10 +27,10 @@ class FlashingLightsMenu extends MusicBeatState
 
         if(FlxG.keys.justPressed.Y)
             Options.setData(true, "flashingLights");
-        else if(!FlxG.keys.justPressed.Y && FlxG.keys.justPressed.ANY)
+        else if(!FlxG.keys.justPressed.Y && controls.ACCEPT)
             Options.setData(false, "flashingLights");
 
-        if(FlxG.keys.justPressed.ANY)
+        if(controls.ACCEPT)
             FlxG.switchState(new TitleState());
     }
 }
