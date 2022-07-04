@@ -23,7 +23,7 @@ class PauseSubState extends MusicBeatSubstate
 	var curSelected:Int = 0;
 
 	var menus:Map<String, Array<String>> = [
-		"default" => ['Resume', 'Restart Song', Options', 'Exit To Menu'],
+		"default" => ['Resume', 'Restart Song', 'Options', 'Exit To Menu'],
 		"options" => ['Back', 'Bot', 'Auto Restart', 'No Miss', 'Ghost Tapping', 'No Death'],
 		"restart" => ['Back', 'No Cutscenes', 'With Cutscenes'],
 	];
