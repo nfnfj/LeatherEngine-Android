@@ -1,9 +1,15 @@
 package states;
 
+#if android
+import android.Tools;
+#end
 import utilities.Options;
 import flixel.FlxG;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
+import sys.FileSystem;
+import sys.io.File;
+import flash.system.System;
 
 class FlashingLightsMenu extends MusicBeatState
 {
