@@ -72,9 +72,6 @@ class SimpleInfoDisplay extends TextField
                         case 2:
                             // Version
                             version_Function();
-                        case 3:
-                           // watermark
-                            watermark_Function();
                     }
 
                     text += "\n";
