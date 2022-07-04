@@ -15,6 +15,7 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import debuggers.ChartingState;
 
 class PauseSubState extends MusicBeatSubstate
 {
@@ -23,7 +24,7 @@ class PauseSubState extends MusicBeatSubstate
 	var curSelected:Int = 0;
 
 	var menus:Map<String, Array<String>> = [
-		"default" => ['Resume', 'Restart Song', 'Options', 'Exit To Menu'],
+		"default" => ['Resume', 'Restart Song', 'Chart Editor', 'Options', 'Exit To Menu'],
 		"options" => ['Back', 'Bot', 'Auto Restart', 'No Miss', 'Ghost Tapping', 'No Death'],
 		"restart" => ['Back', 'No Cutscenes', 'With Cutscenes'],
 	];
@@ -186,6 +187,8 @@ class PauseSubState extends MusicBeatSubstate
 				case "restart song":
 					menu = "restart";
 					updateAlphabets();
+				case "chart editor":
+					FlxG.switchState(new ChartingState());
 				case "no cutscenes":
 					PlayState.SONG.speed = PlayState.previousScrollSpeedLmao;
 					PlayState.fromPauseMenu = true;
