@@ -25,11 +25,6 @@ class ReplaySelectorState extends MusicBeatState
 
         super();
 
-               #if android
-	        addVirtualPad(NONE, A_B);
-                #end
-       }
-
         var menuBG:FlxSprite;
 
 		if(utilities.Options.getData("menuBGs"))
@@ -48,6 +43,9 @@ class ReplaySelectorState extends MusicBeatState
         add(grpReplays);
 
         reloadReplays();
+        #if android
+        addVirtualPad(NONE, A_B);
+        #end
     }
 
     override function update(elapsed:Float) {
