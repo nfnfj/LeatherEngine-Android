@@ -268,6 +268,10 @@ class ChartingState extends MusicBeatState
 		addEventUI();
 		updateHeads();
 		updateGrid();
+		
+		#if android
+	        addVirtualPad(FULL, A_B_E);
+            #end
 
 		super.create();
 
@@ -1296,7 +1300,7 @@ class ChartingState extends MusicBeatState
 
 		if(!blockInput)
 		{
-			if (FlxG.keys.justPressed.ENTER)
+			if (controls.ACCEPT)
 			{
 				_song.events = events;
 				PlayState.SONG = _song;
