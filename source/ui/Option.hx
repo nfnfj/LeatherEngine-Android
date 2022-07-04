@@ -75,7 +75,7 @@ class BoolOption extends Option
 	{
 		super.update(elapsed);
 
-		if (controls.ACCEPT && Alphabet_Text.targetY == 0)
+		if (FlxG.keys.justPressed.ENTER && Alphabet_Text.targetY == 0)
 			ChangeValue();
 	}
 
@@ -125,7 +125,7 @@ class PageOption extends Option
 	{
 		super.update(elapsed);
 
-		if (controls.ACCEPT && Std.int(Alphabet_Text.targetY) == 0 && !OptionsMenu.inMenu)
+		if (FlxG.keys.justPressed.ENTER && Std.int(Alphabet_Text.targetY) == 0 && !OptionsMenu.inMenu)
 			OptionsMenu.LoadPage(Page_Name);
 	}
 }
@@ -146,7 +146,7 @@ class GameSubstateOption extends Option
 	{
 		super.update(elapsed);
 
-		if (controls.ACCEPT && Alphabet_Text.targetY == 0)
+		if (FlxG.keys.justPressed.ENTER && Alphabet_Text.targetY == 0)
 			FlxG.state.openSubState(Type.createInstance(this.game_substate, []));
 	}
 }
@@ -171,7 +171,7 @@ class GameStateOption extends Option
 	{
 		super.update(elapsed);
 
-		if (controls.ACCEPT && Alphabet_Text.targetY == 0)
+		if (FlxG.keys.justPressed.ENTER && Alphabet_Text.targetY == 0)
 			FlxG.switchState(Game_State);
 	}
 }
@@ -220,7 +220,7 @@ class ModOption extends FlxTypedGroup<FlxSprite>
 	{
 		super.update(elapsed);
 
-		if (controls.ACCEPT&& Alphabet_Text.targetY == 0)
+		if (FlxG.keys.justPressed.ENTER && Alphabet_Text.targetY == 0)
 		{
 			Mod_Enabled = !Mod_Enabled;
 			ModList.setModEnabled(Option_Value, Mod_Enabled);
@@ -277,7 +277,7 @@ class StringSaveOption extends Option
 	{
 		super.update(elapsed);
 
-		if (controls.ACCEPT && Std.int(Alphabet_Text.targetY) == 0 && !OptionsMenu.inMenu)
+		if (FlxG.keys.justPressed.ENTER && Std.int(Alphabet_Text.targetY) == 0 && !OptionsMenu.inMenu)
 		{
 			var prevIndex = Modes.indexOf(Current_Mode);
 
