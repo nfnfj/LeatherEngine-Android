@@ -3,6 +3,7 @@ import utilities.Options;
 import flixel.FlxG;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
+
 class FlashingLightsMenu extends MusicBeatState
 {
     override public function create()
