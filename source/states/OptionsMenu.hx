@@ -249,7 +249,9 @@ class OptionsMenu extends MusicBeatState
 	{
 		super.update(elapsed);
 		
-		public static var androidaccept = controls.ACCEPT;
+		{
+			public static var androidaccept = controls.ACCEPT;
+		}
 
 		if (!inMenu)
 		{
