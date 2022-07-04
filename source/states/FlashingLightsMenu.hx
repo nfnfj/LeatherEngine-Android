@@ -32,5 +32,7 @@ class FlashingLightsMenu extends MusicBeatState
 
         if(controls.BACK)
             FlxG.switchState(new TitleState());
+	else if(controls.ACCEPT)
+	    FlxG.switchState(new TitleState());
     }
 }
