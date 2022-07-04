@@ -24,7 +24,12 @@ class ReplaySelectorState extends MusicBeatState
         MusicBeatState.windowNameSuffix = " Replays";
 
         super();
-        
+
+               #if android
+	        addVirtualPad(NONE, A_B);
+                #end
+       }
+
         var menuBG:FlxSprite;
 
 		if(utilities.Options.getData("menuBGs"))
