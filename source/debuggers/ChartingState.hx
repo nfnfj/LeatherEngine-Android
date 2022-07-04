@@ -270,7 +270,7 @@ class ChartingState extends MusicBeatState
 		updateGrid();
 		
 		#if android
-	        addVirtualPad(FULL, A_X_E_Y);
+	        addVirtualPad(FULL, A_B_X_Y);
             #end
 
 		super.create();
@@ -1311,7 +1311,7 @@ class ChartingState extends MusicBeatState
 				LoadingState.loadAndSwitchState(new PlayState());
 			}
 
-			if (FlxG.keys.justPressed.E #if android || _virtualpad.buttonE.justPressed #end)
+			if (FlxG.keys.justPressed.E #if android || _virtualpad.buttonB.justPressed #end)
 				changeNoteSustain(Conductor.stepCrochet);
 			if (FlxG.keys.justPressed.Q)
 				changeNoteSustain(-Conductor.stepCrochet);
