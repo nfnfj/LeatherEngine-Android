@@ -101,4 +101,10 @@ class SimpleInfoDisplay extends TextField
     {
         text += "Version: " + Application.current.meta.get('version');
     }
+      
+    
+    function watermark_Function()
+    {
+        text += "LE Port By Hero: ";
+  }
 }
