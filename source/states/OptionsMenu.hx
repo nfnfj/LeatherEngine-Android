@@ -35,6 +35,8 @@ class OptionsMenu extends MusicBeatState
 	var curSelected:Int = 0;
 
 	public static var inMenu = false;
+	
+	public static var androidaccept = controls.ACCEPT;
 
 	public var pages:Array<Dynamic> = [
 		[
@@ -248,10 +250,6 @@ class OptionsMenu extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		
-		{
-			public static var androidaccept = controls.ACCEPT;
-		}
 
 		if (!inMenu)
 		{
