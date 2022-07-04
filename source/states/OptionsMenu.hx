@@ -36,7 +36,7 @@ class OptionsMenu extends MusicBeatState
 
 	public static var inMenu = false;
 	
-	public static var androidaccept = controls.ACCEPT;
+	public static var androidaccept:Bool = false;
 
 	public var pages:Array<Dynamic> = [
 		[
@@ -258,6 +258,11 @@ class OptionsMenu extends MusicBeatState
 				curSelected -= 1 * Math.floor(FlxG.mouse.wheel);
 				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 			}
+
+                        if (controls.ACCEPT)
+                        {
+                                androidaccept = true;
+                        }
 
 			if (controls.UP_P)
 			{
