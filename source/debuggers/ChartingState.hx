@@ -1392,14 +1392,14 @@ class ChartingState extends MusicBeatState
 
 			if (!FlxG.keys.pressed.SHIFT)
 			{
-				if (FlxG.keys.pressed.W || FlxG.keys.pressed.S #if android || _virtualpad.buttonUP.justPressed #end #if android || _virtualpad.buttonDOWN.justPressed #end)
+				if (FlxG.keys.pressed.W || FlxG.keys.pressed.S #if android || _virtualpad.buttonUp.justPressed #end #if android || _virtualpad.buttonDown.justPressed #end)
 				{
 					FlxG.sound.music.pause();
 					vocals.pause();
 
 					var daTime:Float = 700 * FlxG.elapsed;
 
-					if (FlxG.keys.pressed.W #if android || _virtualpad.buttonUP.justPressed #end)
+					if (FlxG.keys.pressed.W #if android || _virtualpad.buttonUp.justPressed #end)
 					{
 						FlxG.sound.music.time -= daTime;
 					}
@@ -1411,14 +1411,14 @@ class ChartingState extends MusicBeatState
 			}
 			else
 			{
-				if (FlxG.keys.justPressed.W || FlxG.keys.justPressed.S #if android || _virtualpad.buttonUP.justPressed #end #if android || _virtualpad.buttonDOWN.justPressed #end)
+				if (FlxG.keys.justPressed.W || FlxG.keys.justPressed.S #if android || _virtualpad.buttonUp.justPressed #end #if android || _virtualpad.buttonDown.justPressed #end)
 				{
 					FlxG.sound.music.pause();
 					vocals.pause();
 
 					var daTime:Float = Conductor.stepCrochet * 2;
 
-					if (FlxG.keys.justPressed.W #if android || _virtualpad.buttonUP.justPressed #end)
+					if (FlxG.keys.justPressed.W #if android || _virtualpad.buttonUp.justPressed #end)
 					{
 						FlxG.sound.music.time -= daTime;
 					}
