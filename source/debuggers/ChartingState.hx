@@ -1392,7 +1392,7 @@ class ChartingState extends MusicBeatState
 
 			if (!FlxG.keys.pressed.SHIFT)
 			{
-				if (FlxG.keys.pressed.W || FlxG.keys.pressed.S #if android || _virtualpad.buttonUp.justPressed #end #if android || _virtualpad.buttonDown.justPressed #end)
+				if (FlxG.keys.pressed.W || FlxG.keys.pressed.S #if android || _virtualpad.buttonUp.justPressed || virtualpad.buttonDown.justPressed #end)
 				{
 					FlxG.sound.music.pause();
 					vocals.pause();
@@ -1411,7 +1411,7 @@ class ChartingState extends MusicBeatState
 			}
 			else
 			{
-				if (FlxG.keys.justPressed.W || FlxG.keys.justPressed.S #if android || _virtualpad.buttonUp.justPressed #end #if android || _virtualpad.buttonDown.justPressed #end)
+				if (FlxG.keys.justPressed.W || FlxG.keys.justPressed.S #if android || virtualpad.buttonUp.justPressed || virtualpad.buttonDown.justPressed #end)
 				{
 					FlxG.sound.music.pause();
 					vocals.pause();
