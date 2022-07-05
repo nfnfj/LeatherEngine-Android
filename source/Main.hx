@@ -28,7 +28,7 @@ class Main extends Sprite
 
 	public function new()
 	{
-                SUtil.gameCrashCheck();
+                SUtil.uncaughtErrorHandler();
 		super();
 
 		if (stage != null)
@@ -61,7 +61,7 @@ class Main extends Sprite
 			gameHeight = Math.ceil(stageHeight / zoom);
 		}
 
-                SUtil.doTheCheck();
+                SUtil.check();
 
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
