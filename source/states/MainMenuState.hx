@@ -29,16 +29,13 @@ class MainMenuState extends MusicBeatState
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
-	var optionShit:Array<String> = ['story mode', 'freeplay', 'options'];
+	var optionShit:Array<String> = ['story mode', 'freeplay', 'options', 'mods'];
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
 	override function create()
 	{
-		if(PolymodHandler.metadataArrays.length > 0)
-			optionShit.push('mods');
-
 		if(Replay.getReplayList().length > 0)
 			optionShit.push('replays');
 		
