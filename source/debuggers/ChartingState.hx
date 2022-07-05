@@ -270,7 +270,7 @@ class ChartingState extends MusicBeatState
 		updateGrid();
 		
 		#if android
-	        addVirtualPad(FULL, A_B_X_Y);
+	        addVirtualPad(FULL, A_B_C_X_Y);
             #end
 
 		super.create();
@@ -1349,7 +1349,7 @@ class ChartingState extends MusicBeatState
 
 			var control = FlxG.keys.pressed.CONTROL;
 
-			if (FlxG.keys.justPressed.SPACE)
+			if (FlxG.keys.justPressed.SPACE #if android || _virtualpad.buttonC.justPressed #end)
 			{
 				if (FlxG.sound.music.playing)
 				{
