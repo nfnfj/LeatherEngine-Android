@@ -37,7 +37,11 @@ class PolymodHandler
     {
         metadataArrays = [];
 
-        var tempArray = sys.FileSystem.readDirectory("mods/","*.*.*");
+        var tempArray = Polymod.scan("mods/","*.*.*",function(error:PolymodError) {
+            #if debug
+			trace(error.message);
+            #end
+		});
 
         for(metadata in tempArray)
         {
