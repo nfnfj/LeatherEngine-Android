@@ -152,6 +152,10 @@ class OptionsMenu extends MusicBeatState
 			new GameSubstateOption("UI Skin", 6, substates.UISkinSelect)
 		],
 		[
+		    "Mobile Controls", 
+		      new GameStateOption("Controls", 1, new AndroidControls())
+		  ], 
+	   [
 			"Screen Effects",
 			new PageOption("Back", 0, "Graphics"),
 			new BoolOption("Camera Tracks Direction", "cameraTracksDirections", 1),
