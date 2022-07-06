@@ -29,7 +29,6 @@ import debuggers.StageMakingState;
 import game.Highscore;
 import openfl.utils.Assets as OpenFLAssets;
 import debuggers.ChartingStateDev;
-import android.AndroidControls;
 
 class OptionsMenu extends MusicBeatState
 {
@@ -153,10 +152,7 @@ class OptionsMenu extends MusicBeatState
 			new GameSubstateOption("UI Skin", 6, substates.UISkinSelect)
 		],
 		[
-		    "Mobile Controls", 
-		      new GameStateOption("Controls", 1, new AndroidControls())
-		  ], 
-	   [
+		  
 			"Screen Effects",
 			new PageOption("Back", 0, "Graphics"),
 			new BoolOption("Camera Tracks Direction", "cameraTracksDirections", 1),
