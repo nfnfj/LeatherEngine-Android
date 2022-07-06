@@ -160,7 +160,7 @@ class ChartingStateDev extends MusicBeatState
     {
         super.update(elapsed);
 
-		if (FlxG.keys.justPressed.ENTER)
+		if (FlxG.keys.justPressed.ENTER #if android || _virtualpad.buttonA.justPressed #end)
         {
             FlxG.mouse.visible = false;
             PlayState.SONG = SONG;
@@ -169,7 +169,7 @@ class ChartingStateDev extends MusicBeatState
             LoadingState.loadAndSwitchState(new PlayState());
         }
 
-        if (FlxG.keys.justPressed.SPACE)
+        if (FlxG.keys.justPressed.SPACE #if android || _virtualpad.buttonC.justPressed #end)
         {
             if(Inst_Track.playing)
             {
