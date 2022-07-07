@@ -8,6 +8,7 @@ import modding.ModList;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import states.OptionsMenu;
+import states.ModsMenu;
 import flixel.FlxG;
 import flixel.group.FlxGroup;
 
