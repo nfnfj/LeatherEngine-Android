@@ -220,7 +220,7 @@ class ModOption extends FlxTypedGroup<FlxSprite>
 	{
 		super.update(elapsed);
 
-		if (OptionsMenu.androidaccept && Alphabet_Text.targetY == 0)
+		if (ModsMenu.androidaccept && Alphabet_Text.targetY == 0)
 		{
 			Mod_Enabled = !Mod_Enabled;
 			ModList.setModEnabled(Option_Value, Mod_Enabled);
