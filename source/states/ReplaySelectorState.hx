@@ -84,7 +84,7 @@ class ReplaySelectorState extends MusicBeatState
         if(-1 * Math.floor(FlxG.mouse.wheel) != 0)
             changeReplay(-1 * Math.floor(FlxG.mouse.wheel));
 
-        if(controls.BACK)
+        if(FlxG.android.justReleased.BACK)
             FlxG.switchState(new MainMenuState());
     }
 
