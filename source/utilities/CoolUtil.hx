@@ -7,6 +7,8 @@ import lime.app.Application;
 import flixel.FlxG;
 import states.PlayState;
 import lime.utils.Assets;
+import sys.FileSystem;
+import sys.io.File;
 
 using StringTools;
 
@@ -32,7 +34,7 @@ class CoolUtil
 
 	public static function coolTextFile(path:String):Array<String>
 	{
-		var daList:Array<String> = Assets.getText(path).trim().split('\n');
+		var daList:Array<String> = File.getContent(path).trim().split('\n');
 
 		for (i in 0...daList.length)
 		{
