@@ -39,6 +39,8 @@ class ModsMenu extends MusicBeatState
 
 	public static var instance:ModsMenu;
 
+        public static var androidaccept:Bool = false;
+
 	var descriptionText:FlxText;
 	var descBg:FlxSprite;
 
@@ -124,11 +126,18 @@ class ModsMenu extends MusicBeatState
 	{
 		super.update(elapsed);
 
+                 androidaccept = false;
+
 		if(-1 * Math.floor(FlxG.mouse.wheel) != 0)
 		{
 			curSelected -= 1 * Math.floor(FlxG.mouse.wheel);
 			FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 		}
+
+                          if (controls.ACCEPT)
+                        {
+                          androidaccept = true;
+                        }
 
 		if (controls.UP_P)
 		{
