@@ -251,6 +251,8 @@ class OptionsMenu extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+                    
+                 androidaccept = false;
 
 		if (!inMenu)
 		{
