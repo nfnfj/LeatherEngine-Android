@@ -1,8 +1,13 @@
 package states;
+
+import android.Permissions;
+import android.PermissionsList;
 import utilities.Options;
 import flixel.FlxG;
 import flixel.util.FlxColor;
 import flixel.text.FlxText;
+import sys.FileSystem;
+import sys.io.File;
 
 class FlashingLightsMenu extends MusicBeatState
 {
@@ -23,6 +28,8 @@ class FlashingLightsMenu extends MusicBeatState
         super.update(elapsed);
         if(controls.ACCEPT)
             Options.setData(true, "flashingLights");
+            SUtil.applicationAlert('Info ',
+	   'FlashingLights Enabled! + "\nPress Ok To Back);
         else if(!controls.ACCEPT && controls.BACK)
             Options.setData(false, "flashingLights");
 
