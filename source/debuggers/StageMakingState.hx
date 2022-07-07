@@ -787,7 +787,7 @@ class StageMakingState extends MusicBeatState
             if(FlxG.keys.justPressed.Q)
                 stageCam.zoom -= 0.1;
 
-            if(FlxG.keys.justPressed.ESCAPE)
+            if(FlxG.android.justReleased.BACK)
                 FlxG.switchState(new OptionsMenu());
         }
 
