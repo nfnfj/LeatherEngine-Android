@@ -178,9 +178,10 @@ class ControlMenuSubstate extends MusicBeatSubstate
                 FlxG.state.closeSubState();
             }
             
-            if (FlxG.android.justReleased.BACK) 
+            if (FlxG.android.justReleased.BACK)
+            { 
                 FlxG.state.closeSubState();
-             }
+            }
                
             if(FlxG.mouse.overlaps(fullscreenKey) && FlxG.mouse.justPressed && !selectingStuff)
             {
