@@ -3,9 +3,10 @@ package;
 #if android
 import android.Permissions;
 import android.PermissionsList;
-import android.os.Build;
+import android.os.Build.VERSION;
 import android.os.Environment;
 #end
+import flixel.FlxG;
 import flash.system.System;
 import haxe.CallStack.StackItem;
 import haxe.CallStack;
@@ -17,7 +18,6 @@ import openfl.utils.Assets as OpenFlAssets;
 import openfl.Lib;
 import sys.FileSystem;
 import sys.io.File;
-import utilities.CoolUtil;
 
 /**
  * ...
@@ -33,18 +33,18 @@ class SUtil
 	public static function check()
 	{
 		#if android
-		if (!Permissions.getGrantedPermissions().contains(PermissionsList.READ_EXTERNAL_STORAGE)
-			|| !Permissions.getGrantedPermissions().contains(PermissionsList.WRITE_EXTERNAL_STORAGE))
+		if (!Permissions.getGrantedPermissions().contains(PermissionsList.WRITE_EXTERNAL_STORAGE)
+			&& !Permissions.getGrantedPermissions().contains(PermissionsList.READ_EXTERNAL_STORAGE))
 		{
-			if (Build.SDK_INT > 23 || Build.SDK_INT == 23)
+			if (VERSION.SDK_INT > 23 || VERSION.SDK_INT == 23)
 			{
-				Permissions.requestPermissions([PermissionsList.READ_EXTERNAL_STORAGE, PermissionsList.WRITE_EXTERNAL_STORAGE]);
+				Permissions.requestPermissions([PermissionsList.WRITE_EXTERNAL_STORAGE, PermissionsList.READ_EXTERNAL_STORAGE]);
 
 				/**
-				 * Basicaly for now i can't force the app to stop while it requst a android permission, so this make the app to stop while it request the specific permission!
+				 * Basically for now i can't force the app to stop while its requesting a android permission, so this makes the app to stop while its requesting the specific permission
 				 */
 				SUtil.applicationAlert('Permissions? ',
-					'IF you accepted the permissions all are good!' + "\nIf you didn't expect a crash" + 'Press Ok to see what happens');
+					'If you accepted the permissions you are all good!' + "\nIf you didn't then expect a crash" + 'Press Ok to see what happens');
 			}
 			else
 			{
@@ -53,15 +53,15 @@ class SUtil
 			}
 		}
 
-		if (Permissions.getGrantedPermissions().contains(PermissionsList.READ_EXTERNAL_STORAGE)
-			|| Permissions.getGrantedPermissions().contains(PermissionsList.WRITE_EXTERNAL_STORAGE))
+		if (Permissions.getGrantedPermissions().contains(PermissionsList.WRITE_EXTERNAL_STORAGE)
+			&& Permissions.getGrantedPermissions().contains(PermissionsList.READ_EXTERNAL_STORAGE))
 		{
 			if (!FileSystem.exists(SUtil.getPath()))
 				FileSystem.createDirectory(SUtil.getPath());
 
 			if (!FileSystem.exists(SUtil.getPath() + 'assets/') && !FileSystem.exists(SUtil.getPath() + 'mods/'))
 			{
-				SUtil.applicationAlert('Error!', "Whoops, seems you didn't extract the files from the .APK!\nPlease watch the tutorial by pressing OK.");
+				SUtil.applicationAlert('Error!', "Whoops, seems like you didn't extract the files from the .APK!\nPlease watch the tutorial by pressing OK.");
 				CoolUtil.openURL('https://youtu.be/1sVZdywABZM');
 				System.exit(1);
 			}
@@ -70,16 +70,16 @@ class SUtil
 				if (!FileSystem.exists(SUtil.getPath() + 'assets/'))
 				{
 					SUtil.applicationAlert('Error!',
-						"Whoops, seems you didn't extract the assets/assets folder from the .APK!\nPlease watch the tutorial by pressing OK.");
-					CoolUtil.openURL('https://youtu.be/1sVZdywABZM');
+						"Whoops, seems like you didn't extract the assets/assets folder from the .APK!\nPlease watch the tutorial by pressing OK.");
+					FlxG.openURL('https://youtu.be/1sVZdywABZM');
 					System.exit(1);
 				}
 
 				if (!FileSystem.exists(SUtil.getPath() + 'mods/'))
 				{
 					SUtil.applicationAlert('Error!',
-						"Whoops, seems you didn't extract the assets/mods folder from the .APK!\nPlease watch the tutorial by pressing OK.");
-					CoolUtil.openURL('https://youtu.be/1sVZdywABZM');
+						"Whoops, seems like you didn't extract the assets/mods folder from the .APK!\nPlease watch the tutorial by pressing OK.");
+					FlxG.openURL('https://youtu.be/1sVZdywABZM');
 					System.exit(1);
 				}
 			}
@@ -88,7 +88,7 @@ class SUtil
 	}
 
 	/**
-	 * this will returm the external storage path that will be used for the game
+	 * This returns the external storage path that the game will use
 	 */
 	public static function getPath():String
 	{
@@ -100,7 +100,7 @@ class SUtil
 	}
 
 	/**
-	 * uncaught error handler original made by: sqirra-rng
+	 * Uncaught error handler original made by: sqirra-rng
 	 */
 	public static function uncaughtErrorHandler()
 	{
@@ -140,7 +140,7 @@ class SUtil
 			File.saveContent(path, errMsg + "\n");
 		}
 		catch (x:Exception)
-			SUtil.applicationAlert('Error!', "Chouldn't save the crash file becuase: " + x);
+			SUtil.applicationAlert('Error!', "Clouldn't save the crash dump because: " + x);
 
 		Sys.println(errMsg);
 		Sys.println("Crash dump saved in " + Path.normalize(path));
@@ -155,7 +155,7 @@ class SUtil
 	}
 
 	#if android
-	public static function saveContent(fileName:String = 'file', fileExtension:String = '.json', fileData:String = 'you forgot something to add in your code')
+	public static function saveContent(fileName:String = 'file', fileExtension:String = '.json', fileData:String = 'you forgot to add something in your code')
 	{
 		try
 		{
@@ -180,7 +180,7 @@ class SUtil
 				File.saveBytes(savePath, OpenFlAssets.getBytes(copyPath));
 		}
 		catch (x:Exception)
-			SUtil.applicationAlert('Error!', "Chouldn't copy the file becuase: " + x);
+			SUtil.applicationAlert('Error!', "Clouldn't copy the file because: " + x);
 	}
 	#end
 }
