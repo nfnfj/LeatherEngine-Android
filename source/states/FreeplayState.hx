@@ -208,9 +208,9 @@ class FreeplayState extends MusicBeatState
 		textBG.alpha = 0.6;
 		add(textBG);
 
-                        #if android
-			PolymodHandler.loadMods();
-			#end
+                #if android
+		PolymodHandler.loadMods();
+		#end
 
 		#if PRELOAD_ALL
 		var leText:String = "Press X to reset song score and rank | Press Y to play Song Audio | C + LEFT and RIGHT to change song speed";
