@@ -12,7 +12,9 @@ class FlashingLightsMenu extends MusicBeatState
         #if android
 	addVirtualPad(NONE, A_B);
         #end
+
         super.create();
+
         var text = new FlxText(0,0,0,"Hey! Leather Engine has flashing lights\nPress A to enable them, or B to not.\n(Any key closes this menu)", 32);
         text.font = Paths.font("vcr.ttf");
         text.screenCenter();
