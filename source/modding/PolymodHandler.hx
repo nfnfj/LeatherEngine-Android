@@ -27,7 +27,8 @@ class PolymodHandler
                     "stages" => "stages",
                     "shared" => "shared",
                     "replays" => "replays",
-                    "fonts" => "fonts"
+                    "fonts" => "fonts", 
+                    "mods" => "mods"
                 ]
             }
 		});
