@@ -23,6 +23,7 @@ import flixel.util.FlxColor;
 import lime.utils.Assets;
 import flixel.tweens.FlxEase; 
 import modding.PolymodHandler
+import modding.ModList
 
 using StringTools;
 
@@ -206,6 +207,10 @@ class FreeplayState extends MusicBeatState
 		var textBG:FlxSprite = new FlxSprite(0, FlxG.height - 26).makeGraphic(FlxG.width, 26, 0xFF000000);
 		textBG.alpha = 0.6;
 		add(textBG);
+
+                        #if android
+			PolymodHandler.loadMods();
+			#end
 
 		#if PRELOAD_ALL
 		var leText:String = "Press X to reset song score and rank | Press Y to play Song Audio | C + LEFT and RIGHT to change song speed";
