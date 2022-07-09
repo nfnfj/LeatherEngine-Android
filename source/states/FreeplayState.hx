@@ -22,8 +22,8 @@ import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
 import flixel.tweens.FlxEase; 
-import modding.PolymodHandler
-import modding.ModList
+import modding.PolymodHandler;
+import modding.ModList;
 
 using StringTools;
 
