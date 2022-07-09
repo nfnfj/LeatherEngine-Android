@@ -92,7 +92,7 @@ class ModsMenu extends MusicBeatState
 		descriptionText.screenCenter(X);
 		add(descriptionText);
 
-		var leText:String = "Press ENTER to enable / disable the currently selected mod.";
+		var leText:String = "Press A to enable / disable the currently selected mod.";
 
 		var text:FlxText = new FlxText(0, FlxG.height - 22, FlxG.width, leText, 18);
 		text.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, RIGHT);
