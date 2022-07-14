@@ -13,7 +13,7 @@ import vlc.VlcBitmap;
 import flixel.FlxBasic;
 import flixel.FlxG;
 import extension.videoview.VideoView;
-// import android.Tools;
+import java.lang.System;
 
 class FlxVideo extends FlxBasic {
 	#if VIDEOS_ALLOWED
@@ -53,7 +53,7 @@ class FlxVideo extends FlxBasic {
 
                 #elseif android
 
-                VideoView.playVideo(Tools.getEnv(name));
+                VideoView.playVideo(System.getEnv(name));
                 VideoView.onCompletion = function(){
 		        if (finishCallback != null){
 			        finishCallback();
