@@ -13,7 +13,7 @@ import vlc.VlcBitmap;
 import flixel.FlxBasic;
 import flixel.FlxG;
 import extension.videoview.VideoView;
-import java.lang.System;
+import lang.System;
 
 class FlxVideo extends FlxBasic {
 	#if VIDEOS_ALLOWED
