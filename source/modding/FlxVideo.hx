@@ -12,9 +12,8 @@ import vlc.VlcBitmap;
 #end
 import flixel.FlxBasic;
 import flixel.FlxG;
-import extension.videoview.VideoView;
 #if android
-import android.os.Environment;
+import extension.videoview.VideoView;
 #end
 
 class FlxVideo extends FlxBasic {
@@ -55,7 +54,7 @@ class FlxVideo extends FlxBasic {
 
                 #elseif android
 
-                VideoView.playVideo(Environment.getExternalStorageDirectory() + name);
+                VideoView.playVideo(SUtil.getPath() + name);
                 VideoView.onCompletion = function(){
 		        if (finishCallback != null){
 			        finishCallback();
