@@ -12,11 +12,10 @@ import vlc.VlcBitmap;
 #end
 import flixel.FlxBasic;
 import flixel.FlxG;
-import extension.videoview.VideoView;
 #if android
-import android.Tools;
+import extension.videoview.VideoView;
 #end
- 
+
 class FlxVideo extends FlxBasic {
 	#if VIDEOS_ALLOWED
 	public var finishCallback:Void->Void = null;
@@ -55,7 +54,7 @@ class FlxVideo extends FlxBasic {
 
                 #elseif android
 
-                VideoView.playVideo(Tools.getEnv(name));
+                VideoView.playVideo(SUtil.getPath() + name);
                 VideoView.onCompletion = function(){
 		        if (finishCallback != null){
 			        finishCallback();
