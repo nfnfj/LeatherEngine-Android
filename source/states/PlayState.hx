@@ -70,6 +70,7 @@ import substates.PauseSubState;
 import substates.GameOverSubstate;
 import game.Highscore;
 import openfl.utils.Assets as OpenFlAssets;
+import android.flixel.FlxHitbox;
 
 using StringTools;
 
@@ -859,6 +860,109 @@ class PlayState extends MusicBeatState
 			iconP1.cameras = [camHUD];
 			iconP2.cameras = [camHUD];
 			scoreTxt.cameras = [camHUD];
+					
+			var curhitbox:HitboxType = FOUR;
+                        if(characterPlayingAs == 0)
+		                switch (ogPlayerKeyCount){
+			                case 1:
+				                curhitbox = ONE;
+			                case 2:
+				                curhitbox = TWO;
+			                case 3:
+				                curhitbox = THREE;					
+			                case 4:
+				                curhitbox = FOUR;	
+			                case 5:
+				                curhitbox = FIVE;
+			                case 6:
+				                curhitbox = SIX;
+			                case 7:
+				                curhitbox = SEVEN;
+			                case 8:
+				                curhitbox = EIGHT;
+			                case 9:
+				                curhitbox = NINE;
+			                case 10:
+				                curhitbox = TEN;
+		                        case 11:
+				                curhitbox = ELEVEN;	
+			                case 12:
+				                curhitbox = TWELVE;
+			                case 13:
+				                curhitbox = THIRTEEN;
+			                case 14:
+				                curhitbox = FOURTEEN;
+			                case 15:
+				                curhitbox = FIFTEEN;
+			                case 16:
+				                curhitbox = SIXTEEN;
+			                case 17:
+				                curhitbox = SEVENTEEN;
+			                case 18:
+				                curhitbox = EIGHTEEN;
+			                case 19:
+				                curhitbox = NINETEEN;
+			                case 20:
+				                curhitbox = TWENTY;
+			                case 21:
+				                curhitbox = TWENTYONE;
+			                default:
+				                curhitbox = FOUR;
+		        }
+			else if(characterPlayingAs == 1)
+				switch (ogKeyCount){
+			                case 1:
+				                curhitbox = ONE;
+			                case 2:
+				                curhitbox = TWO;
+			                case 3:
+				                curhitbox = THREE;					
+			                case 4:
+				                curhitbox = FOUR;	
+			                case 5:
+				                curhitbox = FIVE;
+			                case 6:
+				                curhitbox = SIX;
+			                case 7:
+				                curhitbox = SEVEN;
+			                case 8:
+				                curhitbox = EIGHT;
+			                case 9:
+				                curhitbox = NINE;
+			                case 10:
+				                curhitbox = TEN;
+		                        case 11:
+				                curhitbox = ELEVEN;	
+			                case 12:
+				                curhitbox = TWELVE;
+			                case 13:
+				                curhitbox = THIRTEEN;
+			                case 14:
+				                curhitbox = FOURTEEN;
+			                case 15:
+				                curhitbox = FIFTEEN;
+			                case 16:
+				                curhitbox = SIXTEEN;
+			                case 17:
+				                curhitbox = SEVENTEEN;
+			                case 18:
+				                curhitbox = EIGHTEEN;
+			                case 19:
+				                curhitbox = NINETEEN;
+			                case 20:
+				                curhitbox = TWENTY;
+			                case 21:
+				                curhitbox = TWENTYONE;
+			                default:
+				                curhitbox = FOUR;
+		        }
+
+		        _hitbox = new FlxHitbox(curhitbox);
+
+			_hitbox.cameras = [camHUD];
+
+		        _hitbox.visible = false;
+		        add(_hitbox);
 
 			startingSong = true;
 
@@ -1000,7 +1104,7 @@ class PlayState extends MusicBeatState
 				if (!event_luas.exists(event[0].toLowerCase()) && Assets.exists(Paths.lua("event data/" + event[0].toLowerCase())))
 				{
 					event_luas.set(event[0].toLowerCase(),
-						ModchartUtilities.createModchartUtilities(PolymodAssets.getPath(Paths.lua("event data/" + event[0].toLowerCase()))));
+						ModchartUtilities.createModchartUtilities(Paths.lua("event data/" + event[0].toLowerCase()))));
 					generatedSomeDumbEventLuas = true;
 				}
 				#end
@@ -1175,7 +1279,7 @@ class PlayState extends MusicBeatState
 		}
 
 		var foundFile:Bool = false;
-		var fileName:String = #if sys Sys.getCwd() + PolymodAssets.getPath(Paths.video(name, ext)) #else Paths.video(name, ext) #end;
+		var fileName:String = #if sys Sys.getCwd() + SUtil.getPath() + (Paths.video(name, ext)) #else Paths.video(name, ext) #end;
 
 		#if sys
 		if (FileSystem.exists(fileName))
@@ -1316,6 +1420,7 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 		paused = false;
 		canPause = true;
+		_hitbox.visible = true;
 
 		if (utilities.Options.getData("middlescroll"))
 		{
@@ -2575,7 +2680,7 @@ class PlayState extends MusicBeatState
 		if (!inCutscene && !switchedStates)
 			keyShit();
 
-		if (FlxG.keys.checkStatus(FlxKey.fromString(utilities.Options.getData("pauseBind", "binds")), FlxInputState.JUST_PRESSED)
+		if ((FlxG.android.justReleased.BACK)
 			&& startedCountdown
 			&& canPause
 			&& !switchedStates)
@@ -3142,6 +3247,30 @@ class PlayState extends MusicBeatState
 	var justReleasedArray:Array<Bool> = [];
 	var heldArray:Array<Bool> = [];
 	var previousReleased:Array<Bool> = [];
+			
+	#if android
+	private function hitboxKeysArePressed():Bool
+	{
+	        if (_hitbox.array[ogPlayerKeyCount].pressed) 
+                {
+			return true;
+		}
+		else if (_hitbox.array[ogKeyCount].pressed) 
+                {
+			return true;
+		}
+		return false;
+	}
+
+	private function hitboxDataKeyIsPressed(data:Int):Bool
+	{
+		if (_hitbox.array[data].pressed) 
+                {
+                        return true;
+                }
+		return false;
+	}
+        #end
 
 	public function keyShit()
 	{
@@ -3176,7 +3305,21 @@ class PlayState extends MusicBeatState
 							heldArray[i] = FlxG.keys.checkStatus(FlxKey.fromString(bruhBinds[i]), FlxInputState.PRESSED);
 						}
 					}
+					for(i in 0..._hitbox.array.length)
+					{
+						justPressedArray[i] = _hitbox.array[i].justPressed;
+						releasedArray[i] = _hitbox.array[i].released;
+						justReleasedArray[i] = _hitbox.array[i].justReleased;
+						heldArray[i] = _hitbox.array[i].pressed;
 
+						if(releasedArray[i] == true && SONG.playerKeyCount == 4)
+						{
+							justPressedArray[i] = _hitbox.array[i].justPressed;
+							releasedArray[i] = _hitbox.array[i].released;
+							justReleasedArray[i] = _hitbox.array[i].justReleased;
+							heldArray[i] = _hitbox.array[i].pressed;
+						}
+					}
 					for (i in 0...justPressedArray.length)
 					{
 						if (justPressedArray[i])
@@ -3411,7 +3554,7 @@ class PlayState extends MusicBeatState
 				{
 					notes.forEachAlive(function(daNote:Note)
 					{
-						if (heldArray[daNote.noteData] && daNote.isSustainNote && daNote.mustPress)
+						if (heldArray[daNote.noteData] && daNote.isSustainNote && daNote.mustPress && hitboxDataKeyIsPressed(daNote.noteData))
 						{
 							// goodness this if statement is shit lmfao
 							if (((daNote.strumTime <= Conductor.songPosition && daNote.shouldHit)
@@ -4735,7 +4878,7 @@ class PlayState extends MusicBeatState
 		if (!event_luas.exists(event[0].toLowerCase()) && Assets.exists(Paths.lua("event data/" + event[0].toLowerCase())))
 		{
 			event_luas.set(event[0].toLowerCase(),
-				ModchartUtilities.createModchartUtilities(PolymodAssets.getPath(Paths.lua("event data/" + event[0].toLowerCase()))));
+				ModchartUtilities.createModchartUtilities(Paths.lua("event data/" + event[0].toLowerCase()))));
 			generatedSomeDumbEventLuas = true;
 		}
 		#end
