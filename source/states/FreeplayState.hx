@@ -103,6 +103,18 @@ class FreeplayState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
+                loadModMetadata();
+
+		Polymod.init({
+			modRoot:SUtil.getPath() + "mods/",
+			dirs: ModList.getActiveMods(metadataArrays),
+                        framework: OPENFL,
+			errorCallback: function(error:PolymodError)
+			{
+		#if debug
+                trace(error.message);
+                #end
+
 		// Loops through all songs in freeplaySonglist.txt
 		for (i in 0...initSonglist.length)
 		{
