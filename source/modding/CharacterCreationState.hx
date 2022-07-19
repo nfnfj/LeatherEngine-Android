@@ -213,7 +213,7 @@ class CharacterCreationState extends MusicBeatState
             FlxG.sound.playMusic(MusicUtilities.GetOptionsMenuMusic(), 0.7, true);
 
          #if android
-         addVirtualPad('NONE, FULL);
+         addVirtualPad(NONE, FULL);
          #end
          
         super.create();
