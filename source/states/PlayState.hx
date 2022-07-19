@@ -4878,7 +4878,7 @@ class PlayState extends MusicBeatState
 		if (!event_luas.exists(event[0].toLowerCase()) && Assets.exists(Paths.lua("event data/" + event[0].toLowerCase())))
 		{
 			event_luas.set(event[0].toLowerCase(),
-				ModchartUtilities.createModchartUtilities(Paths.lua("event data/" + event[0].toLowerCase()))));
+				ModchartUtilities.createModchartUtilities(Paths.lua("event data/" + event[0].toLowerCase())));
 			generatedSomeDumbEventLuas = true;
 		}
 		#end
