@@ -17,6 +17,7 @@ import utilities.MusicUtilities;
 import flixel.FlxG;
 import game.Conductor;
 import states.MusicBeatState;
+import android.flixel.FlxVirtualPad;
 
 #if discord_rpc
 import utilities.Discord.DiscordClient;
@@ -211,6 +212,10 @@ class CharacterCreationState extends MusicBeatState
         if(FlxG.sound.music == null)
             FlxG.sound.playMusic(MusicUtilities.GetOptionsMenuMusic(), 0.7, true);
 
+         #if android
+         addVirtualPad('NONE, FULL);
+         #end
+         
         super.create();
     }
 
@@ -224,15 +229,15 @@ class CharacterCreationState extends MusicBeatState
         if(controls.BACK)
             FlxG.switchState(new OptionsMenu());
 
-        if(FlxG.keys.justPressed.SPACE)
+        if(FlxG.keys.justPressed.SPACE #if android || FlxG.virtualPad.justPressed.C #end)
             character.playAnim(animations[curAnimation % animations.length], true);
 
-        if(FlxG.keys.justPressed.W)
+        if(FlxG.keys.justPressed.W #if android || FlxG.virtualPad.justPressed.X #end)
             curAnimation -= 1;
-        if(FlxG.keys.justPressed.S)
+        if(FlxG.keys.justPressed.S #if android || FlxG.virtualPad.justPressed.Y #end)
             curAnimation += 1;
 
-        if(FlxG.keys.justPressed.S || FlxG.keys.justPressed.W)
+        if(FlxG.keys.justPressed.S || FlxG.keys.justPressed.W #if android || FlxG.virtualPad.justPressed.X #end #if android || FlxG.virtualPad.justPressed.Y #end )
         {
             if(curAnimation < 0)
                 curAnimation = animations.length - 1;
@@ -246,11 +251,11 @@ class CharacterCreationState extends MusicBeatState
 
         var shiftThing:Int = FlxG.keys.pressed.SHIFT ? 5 : 1;
 
-		if (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L) // stolen from animation debug lmao
+		if (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L #if android || FlxG.virtualPad.justPressed.D #end ) // stolen from animation debug lmao
 		{
-			if (FlxG.keys.pressed.I)
+			if (FlxG.keys.pressed.I #if android || FlxG.virtualPad.justPressed.D #end )
 				camFollow.velocity.y = -90 * shiftThing;
-			else if (FlxG.keys.pressed.K)
+			else if (FlxG.keys.pressed.K #if android || FlxG.virtualPad.justPressed.Z #end )
 				camFollow.velocity.y = 90 * shiftThing;
 			else
 				camFollow.velocity.y = 0;
