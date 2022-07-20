@@ -63,8 +63,10 @@ class TitleState extends MusicBeatState
                 #if android
 		FlxG.android.preventDefaultKeys = [BACK];
 		#end
-		MusicBeatState.windowNameSuffix = "";
 
+		#if !android
+		MusicBeatState.windowNameSuffix = "";
+		#end
 		if (!firstTimeStarting)
 		{
 			persistentUpdate = true;
