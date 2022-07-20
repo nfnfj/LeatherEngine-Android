@@ -67,6 +67,11 @@ class Main extends Sprite
 
 		display = new SimpleInfoDisplay(10, 3, 0xFFFFFF, "_sans");
 		addChild(display);
+                
+                #if !mobile
+		FlxG.autoPause = false;
+		FlxG.mouse.visible = true;
+		#end
 	}
 
 	public static var display:SimpleInfoDisplay;
