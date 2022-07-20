@@ -80,7 +80,9 @@ class TitleState extends MusicBeatState
 			PolymodHandler.loadMods();
 			#end
 
+			#if !android
 			MusicBeatState.windowNamePrefix = Assets.getText(Paths.txt("windowTitleBase", "preload"));
+                        #end
 
 			NoteVariables.init();
 
