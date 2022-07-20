@@ -12,7 +12,7 @@ import flixel.group.FlxGroup;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import.android.flixel.FlxVirtualPad
+import android.flixel.FlxVirtualPad
 // import.fuckin.i.hate.this.menu
 
 class UISkinSelect extends MusicBeatSubstate
@@ -129,7 +129,7 @@ class UISkinSelect extends MusicBeatSubstate
         }
 
                 #if android
-	        addVirtualPad(UP_DOWN, A_B);
+	        addVirtualPad(LEFT_RIGHT, A_B);
                 #end
 
         if(accepted && !leaving)
