@@ -12,7 +12,7 @@ import flixel.group.FlxGroup;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import android.flixel.FlxVirtualPad
+import android.flixel.FlxVirtualPad;
 // import.fuckin.i.hate.this.menu
 
 class UISkinSelect extends MusicBeatSubstate
