@@ -30,7 +30,6 @@ class ScrollSpeedMenu extends MusicBeatSubstate
         offsetText.text = "Scrollspeed: " + alpha_Value;
         offsetText.screenCenter();
         add(offsetText);
-    }
 
       #if android
       addVirtualPad(LEFT_RIGHT, B);
