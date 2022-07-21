@@ -8,6 +8,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import android.flixel.FlxVirtualPad;
 
 class NoteBGAlphaMenu extends MusicBeatSubstate
 {
@@ -31,6 +32,10 @@ class NoteBGAlphaMenu extends MusicBeatSubstate
         offsetText.screenCenter();
         add(offsetText);
     }
+
+    #if android
+    addVirtualPad(LEFT_RIGHT, B);
+    #end
 
     override function update(elapsed:Float) {
         super.update(elapsed);
