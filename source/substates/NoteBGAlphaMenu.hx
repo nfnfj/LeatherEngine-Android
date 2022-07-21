@@ -31,11 +31,11 @@ class NoteBGAlphaMenu extends MusicBeatSubstate
         offsetText.text = "Alpha: " + alpha_Value;
         offsetText.screenCenter();
         add(offsetText);
-    }
+        #if android
+        addVirtualPad(LEFT_RIGHT, B);
+        #end
 
-    #if android
-    addVirtualPad(LEFT_RIGHT, B);
-    #end
+    }
 
     override function update(elapsed:Float) {
         super.update(elapsed);
