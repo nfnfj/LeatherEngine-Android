@@ -75,11 +75,10 @@ class NoteColorSubstate extends MusicBeatSubstate
 
         updateColorValsBase();
         update_Text();
+        #if android
+        addVirtualPad(FULL, A_B);
+        #end
     }
-
-    #if android
-    addVirtualPad(FULL, A_B);
-    #end
 
     override function update(elapsed:Float) {
         super.update(elapsed);
