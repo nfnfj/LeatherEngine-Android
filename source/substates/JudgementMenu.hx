@@ -41,11 +41,10 @@ class JudgementMenu extends MusicBeatSubstate
 
         update_Text();
         add(judgementText);
+        #if android
+        addVirtualPad(FULL, A_B);
+        #end
     }
-
-    #if android
-    addVirtualPad(FULL, A_B);
-    #end
 
     override function update(elapsed:Float) {
         super.update(elapsed);
