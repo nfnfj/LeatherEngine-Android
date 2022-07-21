@@ -31,15 +31,16 @@ class ScrollSpeedMenu extends MusicBeatSubstate
         offsetText.screenCenter();
         add(offsetText);
 
-      #if android
-      addVirtualPad(LEFT_RIGHT, B);
-      #end
+        #if android
+        addVirtualPad(LEFT_RIGHT, B);
+        #end
+        }
 
     override function update(elapsed:Float) {
         super.update(elapsed);
 
         var leftP = controls.LEFT_P;
-		var rightP = controls.RIGHT_P;
+	var rightP = controls.RIGHT_P;
 
         var back = controls.BACK;
 
