@@ -13,6 +13,7 @@ import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import lime.utils.Assets;
+import android.flixel.FlxVirtualPad;
 
 class NoteColorSubstate extends MusicBeatSubstate
 {
@@ -75,6 +76,10 @@ class NoteColorSubstate extends MusicBeatSubstate
         updateColorValsBase();
         update_Text();
     }
+
+    #if android
+    addVirtualPad(FULL, A_B);
+    #end
 
     override function update(elapsed:Float) {
         super.update(elapsed);
