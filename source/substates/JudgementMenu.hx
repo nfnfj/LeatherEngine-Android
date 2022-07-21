@@ -9,6 +9,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import android.flixel.FlxVirtualPad;
 
 class JudgementMenu extends MusicBeatSubstate
 {
@@ -41,6 +42,10 @@ class JudgementMenu extends MusicBeatSubstate
         update_Text();
         add(judgementText);
     }
+
+    #if android
+    addVirtualPad(FULL, A_B);
+    #end
 
     override function update(elapsed:Float) {
         super.update(elapsed);
