@@ -29,6 +29,7 @@ import flixel.addons.ui.FlxUICheckBox;
 import flixel.addons.ui.FlxUIInputText;
 import flixel.addons.ui.FlxUINumericStepper;
 import flixel.addons.ui.FlxUITabMenu;
+import flixel.input.keyboard.FlxKey;
 import flixel.addons.ui.FlxUITooltip.FlxUITooltipStyle;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.group.FlxGroup;
