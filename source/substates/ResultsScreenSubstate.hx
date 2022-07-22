@@ -12,6 +12,7 @@ import flixel.util.FlxColor;
 import flixel.FlxSprite;
 import flixel.FlxG;
 import states.PlayState;
+import android.flixel.FlxVirtualPad;
 
 class ResultsScreenSubstate extends MusicBeatSubstate
 {
@@ -71,6 +72,10 @@ class ResultsScreenSubstate extends MusicBeatSubstate
 	}
 	#end
 
+        #if android
+        addVirtualPad(NONE, A_B);
+        #end
+
         if(FlxG.keys.justPressed.ENTER #if android || justTouched #end)
         {
             PlayState.instance.finishSongStuffs();
@@ -78,11 +83,11 @@ class ResultsScreenSubstate extends MusicBeatSubstate
         }
 
         @:privateAccess
-        if(FlxG.keys.justPressed.SHIFT && !PlayState.playingReplay && !PlayState.instance.hasUsedBot)
+        if(FlxG.keys.justPressed.SHIFT && !PlayState.playingReplay && !PlayState.instance.hasUsedBot #if android || _virtualPad.buttonA.justPressed) 
             PlayState.instance.saveReplay();
 
         @:privateAccess
-        if(FlxG.keys.justPressed.ESCAPE && !PlayState.playingReplay && !PlayState.instance.hasUsedBot)
+        if(FlxG.keys.justPressed.ESCAPE && !PlayState.playingReplay && !PlayState.instance.hasUsedBot #if android || _virtualPad.buttonB.justPressed)
         {
             PlayState.instance.saveReplay();
             PlayState.instance.fixSettings();
