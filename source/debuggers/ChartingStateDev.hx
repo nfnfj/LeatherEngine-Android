@@ -14,6 +14,7 @@ import flixel.FlxObject;
 import flixel.util.FlxColor;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.FlxG;
+import flixel.input.keyboard.FlxKey;
 import utilities.CoolUtil;
 import lime.utils.Assets;
 import ui.HealthIcon;
