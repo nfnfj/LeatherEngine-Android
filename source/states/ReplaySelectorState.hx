@@ -44,7 +44,7 @@ class ReplaySelectorState extends MusicBeatState
 
         reloadReplays();
         #if android
-        addVirtualPad(NONE, A_B);
+        addVirtualPad(UP_DOWN, A_B);
         #end
     }
 
