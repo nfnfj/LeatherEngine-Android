@@ -47,16 +47,16 @@ class Paths
 		return 'assets/$file';
 
 	inline static public function lua(key:String,?library:String)
-		return SUtil.getPath() + getPath('data/$key.lua', TEXT, library);
+		return getPath('data/$key.lua', TEXT, library);
 
 	inline static public function hx(key:String,?library:String)
-		return SUtil.getPath() + getPath('$key.hx', TEXT, library);
+		return getPath('$key.hx', TEXT, library);
 
 	inline static public function file(file:String, type:AssetType = TEXT, ?library:String)
-		return SUtil.getPath() + getPath(file, type, library);
+		return getPath(file, type, library);
 
 	inline static public function txt(key:String, ?library:String)
-		return SUtil.getPath() + getPath('data/$key.txt', TEXT, library);
+		return getPath('data/$key.txt', TEXT, library);
 
 	inline static public function xml(key:String, ?library:String)
 		return getPath('data/$key.xml', TEXT, library);
@@ -65,10 +65,10 @@ class Paths
 		return getPath('data/$key.json', TEXT, library);
 
 	static public function video(key:String, ?ext:String = VIDEO_EXT)
-		return SUtil.getPath() + 'assets/videos/$key.$ext';
+		return 'assets/videos/$key.$ext';
 
 	static public function sound(key:String, ?library:String)
-		return SUtil.getPath() + getPath('sounds/$key.$SOUND_EXT', SOUND, library);
+		return getPath('sounds/$key.$SOUND_EXT', SOUND, library);
 
 	inline static public function soundRandom(key:String, min:Int, max:Int, ?library:String)
 		return sound(key + FlxG.random.int(min, max), library);
