@@ -74,7 +74,7 @@ class Paths
 		return sound(key + FlxG.random.int(min, max), library);
 
 	inline static public function music(key:String, ?library:String)
-		return SUtil.getPath() + getPath('music/$key.$SOUND_EXT', MUSIC, library);
+		return getPath('music/$key.$SOUND_EXT', MUSIC, library);
 
 	static public function voices(song:String, ?difficulty:String)
 	{
