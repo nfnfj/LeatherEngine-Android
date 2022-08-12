@@ -13,7 +13,7 @@ import flixel.FlxSprite;
 import flixel.FlxG;
 import states.PlayState;
 import android.flixel.FlxVirtualPad;
-import sys.io.File;
+import sys.FileSystem;
 
 class ResultsScreenSubstate extends MusicBeatSubstate
 {
