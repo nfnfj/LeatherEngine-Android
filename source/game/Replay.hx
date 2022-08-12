@@ -155,7 +155,7 @@ class Replay
         {
             for(mod in modList)
             {
-                if(sys.FileSystem.exists(Sys.getCwd() + "mods/" + mod + "/replays/"))
+                if(sys.FileSystem.exists(SUtil.getPath() + Sys.getCwd() + "mods/" + mod + "/replays/"))
                 {
                     var modSysReplays = sys.FileSystem.readDirectory(SUtil.getPath() + Sys.getCwd() + "mods/" + mod + "/replays/");
 
