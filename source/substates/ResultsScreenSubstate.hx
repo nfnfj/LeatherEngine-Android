@@ -13,7 +13,6 @@ import flixel.FlxSprite;
 import flixel.FlxG;
 import states.PlayState;
 import android.flixel.FlxVirtualPad;
-import sys.FileSystem;
 
 class ResultsScreenSubstate extends MusicBeatSubstate
 {
@@ -85,7 +84,6 @@ class ResultsScreenSubstate extends MusicBeatSubstate
         @:privateAccess
         if(FlxG.keys.justPressed.SHIFT && !PlayState.playingReplay && !PlayState.instance.hasUsedBot #if android || _virtualpad.buttonB.justPressed #end) 
             PlayState.instance.saveReplay();
-            if (!FileSystem.exists(savePath))
 
         @:privateAccess
         if(FlxG.keys.justPressed.ESCAPE && !PlayState.playingReplay && !PlayState.instance.hasUsedBot #if android || _virtualpad.buttonC.justPressed #end)
