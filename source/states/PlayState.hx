@@ -1361,7 +1361,6 @@ class PlayState extends MusicBeatState
 		if (endingSong)
 			openSubState(new ResultsScreenSubstate());
 		else
-		{
 		#end
 			if (!endSongVar)
 				startCountdown();
