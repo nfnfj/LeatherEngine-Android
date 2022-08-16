@@ -96,7 +96,7 @@ class Song
 
 		var rawJson:String = "";
 
-		rawJson = SUtil.getPath() + Paths.json(folder.toLowerCase() + jsonInput.toLowerCase())).trim();
+		rawJson = SUtil.getPath() + Paths.json(folder.toLowerCase() + jsonInput.toLowerCase()).trim();
 
 		if(rawJson != "")
 		{
