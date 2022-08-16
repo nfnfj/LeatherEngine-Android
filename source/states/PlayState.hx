@@ -1279,7 +1279,7 @@ class PlayState extends MusicBeatState
 		}
 
 		var foundFile:Bool = false;
-		var fileName:String = SUtil.getPath() + (Paths.video(name, ext)) #else Paths.video(name, ext) #end;
+		var fileName:String = Sys.getCwd() + SUtil.getPath() + (Paths.video(name, ext)) #else Paths.video(name, ext) #end;
 
 	
 		if (FileSystem.exists(fileName))
@@ -1361,6 +1361,7 @@ class PlayState extends MusicBeatState
 		if (endingSong)
 			openSubState(new ResultsScreenSubstate());
 		else
+		}
 		#end
 			if (!endSongVar)
 				startCountdown();
