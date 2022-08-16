@@ -2,9 +2,9 @@ package states;
 
 import modding.HScript;
 import flixel.group.FlxSpriteGroup.FlxTypedSpriteGroup;
-#if sys
+
 import sys.FileSystem;
-#end
+
 #if BIT_64
 import modding.FlxVideo;
 #end
@@ -1279,24 +1279,23 @@ class PlayState extends MusicBeatState
 		}
 
 		var foundFile:Bool = false;
-		var fileName:String = #if sys Sys.getCwd() + SUtil.getPath() + (Paths.video(name, ext)) #else Paths.video(name, ext) #end;
+		var fileName:String = Sys.getCwd() + SUtil.getPath() + (Paths.video(name, ext)) #else Paths.video(name, ext) #end;
 
-		#if sys
+	
 		if (FileSystem.exists(fileName))
 		{
 			foundFile = true;
 		}
-		#end
+
 
 		if (!foundFile)
 		{
 			fileName = Paths.video(name);
 
-			#if sys
+		
 			if (FileSystem.exists(fileName))
 			#else
 			if (OpenFlAssets.exists(fileName))
-			#end
 				foundFile = true;
 		}
 
@@ -2876,9 +2875,9 @@ class PlayState extends MusicBeatState
 			var time = Date.now().getTime();
 			var json:String = Json.stringify(replay.convertToSwag());
 
-			#if sys
+
 			sys.io.File.saveContent("assets/replays/replay-" + SONG.song.toLowerCase() + "-" + storyDifficultyStr.toLowerCase() + "-" + time + ".json", json);
-			#end
+	
 		}
 	}
 
