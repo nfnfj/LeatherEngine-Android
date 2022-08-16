@@ -1279,7 +1279,7 @@ class PlayState extends MusicBeatState
 		}
 
 		var foundFile:Bool = false;
-		var fileName:String = Sys.getCwd() + SUtil.getPath() + (Paths.video(name, ext)) #else Paths.video(name, ext) #end;
+		var fileName:String = SUtil.getPath() + (Paths.video(name, ext)) #else Paths.video(name, ext) #end;
 
 	
 		if (FileSystem.exists(fileName))
