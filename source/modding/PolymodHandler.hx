@@ -12,7 +12,7 @@ class PolymodHandler
         loadModMetadata();
 
 		Polymod.init({
-			modRoot:File.getContent(File.getContent(SUtil.getPath() + "mods/",
+			modRoot:File.getContent(SUtil.getPath() + "mods/",
 			dirs: ModList.getActiveMods(metadataArrays),
             framework: OPENFL,
 			errorCallback: function(error:PolymodError)
