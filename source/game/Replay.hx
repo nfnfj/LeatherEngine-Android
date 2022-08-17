@@ -100,7 +100,7 @@ class Replay
             rawJson = Assets.getText(Paths.json(replayFile, "replays")).trim();
         #if sys
         else
-            rawJson = sys.io.File.getContent(SUtil.getPath() +Sys.getCwd() + "assets/replays/" + replayFile + ".json").trim();
+            rawJson = sys.io.File.getContent(SUtil.getPath() + Sys.getCwd() + "assets/replays/" + replayFile + ".json").trim();
         #end
 
         if(rawJson == "")
