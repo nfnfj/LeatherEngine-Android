@@ -38,7 +38,7 @@ class PolymodHandler
     {
         metadataArrays = [];
 
-        var tempArray = Polymod.scan(File.getContent(SUtil.getPath() + "mods/","*.*.*",function(error:PolymodError) {
+        var tempArray = Polymod.scan(SUtil.getPath() + "mods/","*.*.*",function(error:PolymodError) {
             #if debug
 			trace(error.message);
             #end
