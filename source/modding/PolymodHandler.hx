@@ -12,7 +12,7 @@ class PolymodHandler
         loadModMetadata();
 
 		Polymod.init({
-			modRoot:SUtil.getPath() + "mods/",
+			modRoot:File.getContent(SUtil.getPath() + "mods/",
 			dirs: ModList.getActiveMods(metadataArrays),
             framework: OPENFL,
 			errorCallback: function(error:PolymodError)
@@ -38,7 +38,7 @@ class PolymodHandler
     {
         metadataArrays = [];
 
-        var tempArray = Polymod.scan(SUtil.getPath() + "mods/","*.*.*",function(error:PolymodError) {
+        var tempArray = Polymod.scan(File.getContent(SUtil.getPath() + "mods/","*.*.*",function(error:PolymodError) {
             #if debug
 			trace(error.message);
             #end
