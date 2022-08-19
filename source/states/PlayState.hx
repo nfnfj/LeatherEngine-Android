@@ -157,7 +157,8 @@ class PlayState extends MusicBeatState
 	public var defaultHudCamZoom:Float = 1.0;
 
 	var altAnim:String = "";
-
+    var savedReplay:Bool = false;
+    
 	public static var stepsTexts:Array<String>;
 
 	// how big to stretch the pixel art assets
@@ -2878,9 +2879,9 @@ class PlayState extends MusicBeatState
 			var time = Date.now().getTime();
 			var json:String = Json.stringify(replay.convertToSwag());
 
-	File.saveContent(SUtil.getPath() +("assets/replays/replay-" + SONG.song.toLowerCase() + "-" + storyDifficultyStr.toLowerCase() + "-" + time + ".json", json);
+	 File.saveContent(SUtil.getPath() +("assets/replays/replay-" + SONG.song.toLowerCase() + "-" + storyDifficultyStr.toLowerCase() + "-" + time + ".json", json)
 	
-	var savedReplay:Bool = false;
+	// var savedReplay:Bool = false;
 
 	public function fixSettings()
 	{
