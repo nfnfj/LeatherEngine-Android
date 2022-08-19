@@ -105,6 +105,8 @@ class PlayState extends MusicBeatState
 
 	public static var prevCamFollow:FlxObject;
 
+    public static var savedReplay:Bool = false;
+    
 	public var stage:StageGroup;
 
 	public static var strumLineNotes:FlxTypedGroup<StrumNote>;
@@ -157,7 +159,6 @@ class PlayState extends MusicBeatState
 	public var defaultHudCamZoom:Float = 1.0;
 
 	var altAnim:String = "";
-    var savedReplay:Bool = false;
     
 	public static var stepsTexts:Array<String>;
 
