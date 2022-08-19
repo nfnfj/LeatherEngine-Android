@@ -104,8 +104,6 @@ class PlayState extends MusicBeatState
 	public var camFollow:FlxObject;
 
 	public static var prevCamFollow:FlxObject;
-
-    public static var savedReplay:Bool = false;
     
 	public var stage:StageGroup;
 
@@ -2882,7 +2880,7 @@ class PlayState extends MusicBeatState
 
 	 File.saveContent(SUtil.getPath() +("assets/replays/replay-" + SONG.song.toLowerCase() + "-" + storyDifficultyStr.toLowerCase() + "-" + time + ".json", json)
 	
-	// var savedReplay:Bool = false;
+	var savedReplay:Bool = false;
 
 	public function fixSettings()
 	{
