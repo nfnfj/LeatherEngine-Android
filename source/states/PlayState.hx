@@ -71,8 +71,6 @@ import substates.GameOverSubstate;
 import game.Highscore;
 import openfl.utils.Assets as OpenFlAssets;
 import android.flixel.FlxHitbox;
-import sys.FileSystem;
-import sys.io.File;
 
 using StringTools;
 
@@ -104,7 +102,7 @@ class PlayState extends MusicBeatState
 	public var camFollow:FlxObject;
 
 	public static var prevCamFollow:FlxObject;
-    
+
 	public var stage:StageGroup;
 
 	public static var strumLineNotes:FlxTypedGroup<StrumNote>;
@@ -157,7 +155,7 @@ class PlayState extends MusicBeatState
 	public var defaultHudCamZoom:Float = 1.0;
 
 	var altAnim:String = "";
-    
+
 	public static var stepsTexts:Array<String>;
 
 	// how big to stretch the pixel art assets
@@ -2878,8 +2876,12 @@ class PlayState extends MusicBeatState
 			var time = Date.now().getTime();
 			var json:String = Json.stringify(replay.convertToSwag());
 
-	 File.saveContent(SUtil.getPath() +("assets/replays/replay-" + SONG.song.toLowerCase() + "-" + storyDifficultyStr.toLowerCase() + "-" + time + ".json", json)
-	
+			#if sys
+			File.saveContent(SUtil.getPath() + sys.io.File.saveContent("assets/replays/replay-" + SONG.song.toLowerCase() + "-" + storyDifficultyStr.toLowerCase() + "-" + time + ".json", json);
+			#end
+		}
+	}
+
 	var savedReplay:Bool = false;
 
 	public function fixSettings()
