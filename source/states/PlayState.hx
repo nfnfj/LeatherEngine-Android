@@ -2877,7 +2877,7 @@ class PlayState extends MusicBeatState
 			var json:String = Json.stringify(replay.convertToSwag());
 
 			#if sys
-			File.saveContent(SUtil.getPath() + sys.io.File.saveContent("assets/replays/replay-" + SONG.song.toLowerCase() + "-" + storyDifficultyStr.toLowerCase() + "-" + time + ".json", json);
+			File.saveContent(SUtil.getPath() + ("assets/replays/replay-" + SONG.song.toLowerCase() + "-" + storyDifficultyStr.toLowerCase() + "-" + time + ".json", json);
 			#end
 		}
 	}
@@ -4907,3 +4907,4 @@ enum Execute_On
 	MODCHART;
 	STAGE;
 }
+
