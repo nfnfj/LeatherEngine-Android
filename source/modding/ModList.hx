@@ -2,8 +2,6 @@ package modding;
 
 #if polymod
 import polymod.Polymod;
-#end
-import polymod.Polymod;
 
 class ModList
 {
