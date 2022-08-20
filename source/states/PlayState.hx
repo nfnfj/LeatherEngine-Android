@@ -71,6 +71,8 @@ import substates.GameOverSubstate;
 import game.Highscore;
 import openfl.utils.Assets as OpenFlAssets;
 import android.flixel.FlxHitbox;
+import sys.FileSystem;
+import sys.io.File;
 
 using StringTools;
 
@@ -2876,8 +2878,8 @@ class PlayState extends MusicBeatState
 			var time = Date.now().getTime();
 			var json:String = Json.stringify(replay.convertToSwag());
 
-			#if sys
-			File.saveContent(SUtil.getPath() + ("assets/replays/replay-" + SONG.song.toLowerCase() + "-" + storyDifficultyStr.toLowerCase() + "-" + time + ".json", json)
+			#if android
+			File.saveContent("assets/replays/replay-" + SONG.song.toLowerCase() + "-" + storyDifficultyStr.toLowerCase() + "-" + time + ".json", json);
 			#end
 		}
 	}
